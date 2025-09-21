@@ -26,6 +26,9 @@ public class main {
         System.out.print("Select user: ");
         choice = scan.nextInt();
         scan.nextLine();
+        
+        
+        
         switch (choice) {
             case 1:
                 int traderChoice;
@@ -38,7 +41,9 @@ public class main {
                 traderChoice = scan.nextInt();
                 scan.nextLine();
 
-                switch (traderChoice) {
+                //while(traderChoice != 5)
+                    switch (traderChoice) {
+                    
                     case 1:
 
                         System.out.println("\n--- Register Trader ---");
@@ -114,8 +119,8 @@ public class main {
                         System.out.print("Enter New Item Description: ");
                         String new_description = scan.next();
 
-                        sqlitem = "UPDATE tbl_items SET item_Name = ?, item_Brand = ?, item_Condition = ?, item_Date = ?, item_Description = ? ";
-                        con.addRecord(sqlitem, new_item, new_brand, new_condition, new_date, new_description);
+                        sqlitem = "UPDATE tbl_items SET item_Name = ?, item_Brand = ?, item_Condition = ?, item_Date = ?, item_Description = ? WHERE item_id = ? ";
+                        con.updateRecord(sqlitem, new_item, new_brand, new_condition, new_date, new_description, item_id);
                    
                     default:
                        System.out.println("Invalid selection!");
